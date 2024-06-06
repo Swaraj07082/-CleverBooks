@@ -1,0 +1,138 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+
+    --primary: 240 5.9% 10%;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 240 10% 3.9%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 0 0% 98%;
+    --primary-foreground: 240 5.9% 10%;
+
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+.text-gradient {
+  --text-gradient: linear-gradient(157deg, #fc907e, #9f6eed);
+  background: var(--text-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+.border-gradient {
+  border-image-slice: 1;
+  border-width: 3px;
+  border-image-source: linear-gradient(157deg, #fc907e, #9f6eed);
+}
+
+
+.bg-gradient-left {
+  position: relative;
+}
+
+.bg-gradient-left::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  border-top-left-radius: 4%;
+  border-bottom-left-radius: 4%;
+  background-image: linear-gradient(to bottom, #fc907e, #9f6eed);
+  z-index: -1;
+}
+
+.slanting-div {
+  position: relative;
+  overflow: hidden; /* Ensure content doesn't overflow the shape */
+  /* clip-path: polygon(0 0, 100% 0, 100% 80%, calc(100% - 20px) 100%, 20px 100%, 0 80%); */
+  clip-path: polygon(0 0, 100% 0, 100% 80%, calc(100% - 20px) 90%, 20px 100%, 0 80%);
+ /* clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%); */
+  border-bottom-left-radius: 200px;
+  border-bottom-right-radius: 250px;
+  z-index: 1;
+
+
+}
+
+.slanting-div::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: inherit;
+  clip-path: polygon(0 0, 100% 0, 100% 80%, calc(100% - 20px) 90%, 20px 100%, 0 80%);
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  z-index: -1;
+}
